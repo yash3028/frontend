@@ -7,7 +7,7 @@ function PendingRequest() {
   useEffect(() => {
     async function fetchRequests() {
       const token = localStorage.getItem("token");
-      const res = await get_request("/requests");
+      const res = await get_request("/api/request/pending");
       setRequests(res.data);
     }
     fetchRequests();
@@ -16,7 +16,7 @@ function PendingRequest() {
   const updateStatus = async (id: number, status: string) => {
     const token = localStorage.getItem("token");
     try {
-      await post_request(`/requests/${id}`, { status });
+      await post_request(`/api/requests/${id}`, { status });
       alert("Updated successfully");
     } catch {
       alert("Failed to update");

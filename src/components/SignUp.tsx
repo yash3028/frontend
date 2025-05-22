@@ -7,13 +7,12 @@ function SignUp(){
     const [role, SetRole] = useState('Employee');
     const handleSign = async()=>{
         try{
-        const response = await post_request("/api/auth/signup",{username,password});
+        const response = await post_request("/api/auth/signup",{username,password,role});
         alert('user registered');
     } catch {
         alert('sign up failed');
     }
-}
-
+    }
         return (
              <div>
       <h2>SignUp</h2>
