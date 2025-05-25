@@ -6,6 +6,8 @@ import Login from "./components/Login";
 import CreateSoftware from "./components/CreateSoftware";
 import RequestAccess from "./components/RequestAccess";
 import PendingRequest from "./components/PendingRequest";
+import Layout from "./components/Layout";
+import Home from "./components/Home";
 
 function App() {
 
@@ -13,12 +15,14 @@ function App() {
     <>
       <BrowserRouter>
         <Routes>
-            <Route path="/signup" element={<SignUp/>} />
-            <Route path="/" element={<Login/>}  />
+            <Route path="/" element={<Home/>}  />
             <Route path="/login" element={<Login/>}  />
-            <Route path="/create-software" element={<CreateSoftware/>} />
-            <Route path="/request-access" element={<RequestAccess />} />
-            <Route path="/pending-requests" element={<PendingRequest />} />
+            <Route path="/signup" element={<SignUp/>} />
+            <Route element={<Layout />}>
+              <Route path="/create-software" element={<CreateSoftware/>} />
+              <Route path="/request-access" element={<RequestAccess />} />
+              <Route path="/pending-requests" element={<PendingRequest />} />
+            </Route>
         </Routes>
       </BrowserRouter>
     </>
